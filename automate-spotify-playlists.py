@@ -79,7 +79,7 @@ high_corr = correlation[abs(correlation) >= 0.5]
 asd_cluster = all_songs_data.copy()
 asd_cluster.to_csv('all_songs_database.csv', index=0)
 
-
+#pre-processing
 X = pd.DataFrame(asd_cluster.iloc[:, [4,5,6,8,9,11,12]].values)
 cols = asd_cluster.iloc[:, [4,5,6,8,9,11,12]].columns
 X.columns = cols
@@ -90,6 +90,7 @@ scaled = pd.DataFrame(scaler.fit_transform(X))
 scaled.columns = cols
 scaled= scaler.fit_transform(X)
 
+#machine learning/kmeans
 val_per_cluster = []
 for i in range(1,1000,50):
     kmeans = KMeans(n_clusters=i, random_state=0)
@@ -104,7 +105,7 @@ plt.xlabel('Number of clusters')
 kmeans = KMeans(n_clusters = 850, random_state=0)
 y_kmeans = kmeans.fit_predict(scaled)
 
-
+#creating playlists and adding songs
 int_cluster_songs = asd_cluster.tail(50)
 int_cluster = y_kmeans[-50:]
 int_cluster = np.unique(int_cluster)
