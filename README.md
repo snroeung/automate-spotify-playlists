@@ -17,4 +17,7 @@ Spotify uses sophisticated machine learning algorithms to generate Discover Week
 
 ### Files in the repository 
 - automate_spotify_playlists.py: all of the code for the program
+- Automate-Spotify-Playlists.ipynb: Jupyter Notebook version of the py file
 - SpotifyFeatures.csv: database of 160k+ songs on Spotify, found on https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks
+- elbow_method_spotify.png: image of the elbow means graph
+- example.png: image of one of the playlists created
